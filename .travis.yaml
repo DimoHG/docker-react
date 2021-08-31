@@ -1,0 +1,10 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t dimohg/docker-react -f Dockerfile.dev .
+  -
+
+script:
+  - docker run -e CI=true dimohg/docker-react npm run test
